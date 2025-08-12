@@ -4,13 +4,14 @@ public:
         stack<string> st;
         stringstream ss(path);
         string token="";
-        while(getline(ss,token,'/')){
+        while(getline(ss,token,'/')){ //ss->token with the basis of /
             if(token=="." or token==""){
                 continue;
             }
             if(token!=".."){
                 st.push(token);
-            }else if(!st.empty() and token=="..")// token =   ..  
+            }
+            else if(!st.empty() and token=="..")
             st.pop();
         }
         if(st.empty()) return "/";
