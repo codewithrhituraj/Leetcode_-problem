@@ -7,9 +7,9 @@ public:
             mp[nums[i]]++;
         }
 
-        n=n/2;
+      //  n=n/2;
         for(auto x: mp){
-            if(x.second > n) return x.first;
+            if(x.second > n/2) return x.first;
         }
         return 0;
         
