@@ -22,28 +22,42 @@ ListNode* reverseList(ListNode* head){
     }
     return prev;
 }
-
-    bool isPalindrome(ListNode* head) {
+   bool isPalindrome(ListNode* head) {
        // ListNode* temp=a;
        
+        // ListNode* slow=head;
+        // ListNode* fast=head;
+        // while(fast->next!=NULL and fast->next->next!=NULL){
+        //     slow=slow->next;
+        //     fast=fast->next->next;
+        // }
+        // ListNode* another= slow->next;
+        // ListNode* re=reverseList(another);
+        // ListNode* b=re;
+        // ListNode* a= head;
+        // while(b!=NULL){
+        //     if(a->val!=b->val) return false;
+        //     a=a->next;
+        //     b=b->next;
+        // }
+        // return true;
         ListNode* slow=head;
-        ListNode* fast=head;
+        ListNode* fast= head;
         while(fast->next!=NULL and fast->next->next!=NULL){
             slow=slow->next;
             fast=fast->next->next;
         }
+
         ListNode* another= slow->next;
-        ListNode* re=reverseList(another);
-        ListNode* b=re;
-        ListNode* a= head;
-        while(b!=NULL){
-            if(a->val!=b->val) return false;
-            a=a->next;
-            b=b->next;
+        ListNode* re= another;
+        ListNode* ree= reverseList(re);
+        ListNode* temp= head;
+        while(ree!=NULL){
+            if(temp->val!=ree->val) return false;
+            ree=ree->next;
+            temp=temp->next;
         }
+
         return true;
-        
-
-
     }
 };
