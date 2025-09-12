@@ -11,11 +11,10 @@ public:
                 cnt++;
                 i++;
 
-            }res+=to_string(cnt)+string(1,ch);
+            }
+            res+=to_string(cnt)+string(1,ch);
 
         }
-        return res;
-
-        
+        return res; 
     }
 };
