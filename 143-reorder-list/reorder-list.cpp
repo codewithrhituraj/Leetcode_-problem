@@ -10,9 +10,9 @@
  */
 class Solution {
 public:
-    vector<int>store_vec(ListNode* head){
+    vector<int> store_vec(ListNode* head){
         vector<int> v;
-        ListNode* temp= head;
+        ListNode* temp=head;
         while(temp!=NULL){
             v.push_back(temp->val);
             temp=temp->next;
@@ -20,7 +20,7 @@ public:
         return v;
     }
     void reorderList(ListNode* head) {
-        vector<int> v= store_vec(head);
+        vector<int> v=store_vec(head);
         int first=0;
         int last=v.size()-1;
         ListNode* temp=head;
@@ -29,16 +29,17 @@ public:
             if(cnt%2==0){
                 temp->val=v[first];
                 first++;
+                temp=temp->next;
+                cnt++;
             }
             else{
                 temp->val=v[last];
                 last--;
+                temp=temp->next;
+                cnt++;
             }
-            cnt++;
-            temp=temp->next;
         }
-
-
+      //  return head;
 
         
     }
