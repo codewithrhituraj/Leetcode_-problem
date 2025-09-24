@@ -2,8 +2,8 @@ class Solution {
 public:
     bool isValid(string s) {
         stack<char> st;
-        for( auto& ch : s){
-            if(st.empty() or ch =='(' or ch=='{' or ch=='['){
+        for(auto ch: s){
+            if(st.empty() or ch=='(' or ch=='{' or ch=='['){
                 st.push(ch);
                 continue;
             }
@@ -12,8 +12,6 @@ public:
                     st.pop();
                 }
                 else return false;
-
-                
             }
             else if(ch=='}'){
                 if(st.top()=='{'){
@@ -27,8 +25,6 @@ public:
                 }
                 else return false;
             }
-            
-
         }
         return st.empty() ? true: false;
         
