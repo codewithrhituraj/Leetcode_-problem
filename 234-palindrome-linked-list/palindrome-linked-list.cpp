@@ -10,54 +10,38 @@
  */
 class Solution {
 public:
-ListNode* reverseList(ListNode* head){
-    ListNode* prev=NULL;
-    ListNode* N=NULL;
-    ListNode* curr=head;
-    while(curr){
-        N=curr->next;
-        curr->next=prev;
-        prev=curr;
-        curr=N;
+    ListNode* reversee(ListNode* head){
+        ListNode* prev=NULL;
+        ListNode* curr=head;
+        ListNode* N= NULL;
+        while(curr){
+           N=curr->next;
+           curr->next=prev;
+           prev=curr;
+           curr=N;
+
+        }
+        return prev;
     }
-    return prev;
-}
-   bool isPalindrome(ListNode* head) {
-       // ListNode* temp=a;
-       
-        // ListNode* slow=head;
-        // ListNode* fast=head;
-        // while(fast->next!=NULL and fast->next->next!=NULL){
-        //     slow=slow->next;
-        //     fast=fast->next->next;
-        // }
-        // ListNode* another= slow->next;
-        // ListNode* re=reverseList(another);
-        // ListNode* b=re;
-        // ListNode* a= head;
-        // while(b!=NULL){
-        //     if(a->val!=b->val) return false;
-        //     a=a->next;
-        //     b=b->next;
-        // }
-        // return true;
+    bool isPalindrome(ListNode* head) {
         ListNode* slow=head;
-        ListNode* fast= head;
+        ListNode* fast=head;
         while(fast->next!=NULL and fast->next->next!=NULL){
-            slow=slow->next;
-            fast=fast->next->next;
-        }
+            
 
-        ListNode* another= slow->next;
-        ListNode* re= another;
-        ListNode* ree= reverseList(re);
-        ListNode* temp= head;
-        while(ree!=NULL){
-            if(temp->val!=ree->val) return false;
-            ree=ree->next;
-            temp=temp->next;
-        }
+        //FIST MIDDLE ;
+        slow=slow->next;
+        fast=fast->next->next;
+    } 
 
-        return true;
+    ListNode* jj= slow->next;
+    ListNode* re= reversee(jj);
+    ListNode* temp= head;
+    while(re!=NULL){
+        if(temp->val!=re->val) return false;
+        temp=temp->next;
+        re=re->next;
     }
+    return true;
+  }
 };
