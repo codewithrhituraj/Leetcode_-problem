@@ -11,17 +11,15 @@
  */
 class Solution {
 public:
-    void help(TreeNode* root,vector<string>& v, string s){
+
+    void help(TreeNode* root, vector<string> &v,string s){
         if(root==NULL) return;
-        string d= to_string(root->val);
+        string d=to_string(root->val);
         if(root->left==NULL and root->right==NULL){
             s+=d;
             v.push_back(s);
             return;
         }
-
-
-
 
         help(root->left,v,s+d+"->");
         help(root->right,v,s+d+"->");
@@ -30,6 +28,6 @@ public:
         vector<string> v;
         help(root,v,"");
         return v;
-        
+
     }
 };
