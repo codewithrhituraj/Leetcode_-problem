@@ -11,22 +11,28 @@
  */
 class Solution {
 public:
-    void help(TreeNode* root, long long targetSum,int& cnt){
-        if(root==NULL) return;
-        if((long long)root->val==targetSum){
-            cnt++;
-        }
 
-        help(root->left,(long long)targetSum-root->val,cnt);
-        help(root->right,(long long)targetSum-root->val,cnt);
+    void help(TreeNode* root,vector<int> v,int &cnt,long long targetSum){
+        if(root==NULL) return;
+       
+            if((long long)root->val==targetSum){
+              //  v.push_back(root->val);
+                cnt++;
+            }
+        
+      //  v.push_back(root->val);
+
+        help(root->left,v,cnt,(long long)targetSum-root->val);
+        help(root->right,v,cnt,(long long)targetSum-root->val);
     }
     int pathSum(TreeNode* root, int targetSum) {
         if(root==NULL) return 0;
-          int cnt=0;
-        help(root,targetSum,cnt);
-      
+        vector<int> v;
+        int cnt=0;
+        help(root,v,cnt,targetSum);
         cnt+=(pathSum(root->left,targetSum) + pathSum(root->right,targetSum));
         return cnt;
+
         
     }
 };
