@@ -10,30 +10,27 @@
  * };
  */
 class Solution {
-public: 
+public:
 
-    void help(TreeNode* root,  vector<vector<int>> &ans,vector<int> v,int target){
+    void help(TreeNode* root,int target,vector<int> v, vector<vector<int>>& ans){
         if(root==NULL) return;
+
         if(root->left==NULL and root->right==NULL){
             if(root->val==target){
                 v.push_back(root->val);
                 ans.push_back(v);
             }
         }
+
         v.push_back(root->val);
-
-        help(root->left,ans,v,target-root->val);
-         help(root->right,ans,v,target-root->val);
-
+        help(root->left,target-root->val,v,ans);
+        help(root->right,target-root->val,v,ans);
     }
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        
         vector<vector<int>> ans;
         vector<int> v;
-        help(root,ans,v,targetSum);
+        help(root,targetSum,v,ans);
         return ans;
-
-
         
     }
 };
