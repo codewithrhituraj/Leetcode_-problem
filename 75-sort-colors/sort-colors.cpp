@@ -6,17 +6,16 @@ public:
         int n=nums.size();
         int k=n-1;
         while(j<=k){
-            if(nums[j]==1){
-                j++;
-            }
+            if(nums[j]==1) j++;
             else if(nums[j]==2){
                 swap(nums[j],nums[k]);
                 k--;
             }
-            else {// j==0
-                swap(nums[i],nums[j]);
-                j++;
-                i++;
+            else {// nums[j]==0;
+            swap(nums[j],nums[i]);
+            j++;
+            i++;
+
             }
         }
     }
