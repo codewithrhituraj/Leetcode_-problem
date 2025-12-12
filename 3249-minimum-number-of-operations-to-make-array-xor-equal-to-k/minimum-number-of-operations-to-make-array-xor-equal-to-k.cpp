@@ -1,15 +1,13 @@
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
-        int totalXor = 0;
-        
-        for(int &num : nums) {
-            totalXor ^= num;
+        int total_xor=0;
+        for(auto& it: nums){
+            total_xor=total_xor^it;
+
         }
-        
-        
-        int diff = (totalXor ^ k);
-        
+        int diff=total_xor^k;
         return __builtin_popcount(diff);
+        
     }
 };
