@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    ListNode* merge(ListNode* a, ListNode* b){
+        ListNode* merge(ListNode* a, ListNode* b){
         ListNode* dummy = new ListNode(-1);
         ListNode* temp= dummy;
         
@@ -30,25 +30,22 @@ public:
         else temp->next=a;
         return dummy->next;
     }
-
-
     ListNode* sortList(ListNode* head) {
         if(head==NULL or head->next==NULL) return head;
         ListNode* slow= head;
-        ListNode* fast= head;
+        ListNode* fast=head;
         while(fast->next!=NULL and fast->next->next!=NULL){
             slow=slow->next;
             fast=fast->next->next;
         }
-        ListNode* a= head;
-        ListNode* b= slow->next;
-        slow->next= NULL;
+        ListNode* a=head;
+        ListNode* b=slow->next;
+        slow->next=NULL;
         a=sortList(a);
         b=sortList(b);
-        ListNode* c=merge(a,b);
+        
+        ListNode* c= merge(a,b);
         return c;
-
-
         
     }
 };
