@@ -12,13 +12,9 @@ public:
             st.pop();
         }
 
-
         st.push({price,span});
-        return span;
-          
 
-        
-        
+        return span;
     }
 };
 
