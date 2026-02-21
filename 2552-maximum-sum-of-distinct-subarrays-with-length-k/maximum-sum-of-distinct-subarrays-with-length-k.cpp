@@ -9,27 +9,24 @@ public:
         int n=nums.size();
         while(j<n){
             while(st.count(nums[j])){
-                st.erase(nums[i]);
                 sum-=nums[i];
+                st.erase(nums[i]);
                 i++;
-                
             }
 
 
-            st.insert(nums[j]);
             sum+=nums[j];
+            st.insert(nums[j]);
             if(j-i+1==k){
                 res=max(res,sum);
-                st.erase(nums[i]);
-                
                 sum-=nums[i];
+                st.erase(nums[i]);
                 i++;
             }
-           
             j++;
-
         }
         return res;
+
         
     }
 };
