@@ -16,9 +16,11 @@ public:
         TreeNode* temp=root->left;
         root->left=root->right;
         root->right=temp;
-        //we have just done for one root node we have to done for every node so we have to call for every node
         invertTree(root->left);
         invertTree(root->right);
         return root;
+
+
+        
     }
 };
