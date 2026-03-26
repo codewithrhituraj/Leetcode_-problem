@@ -1,6 +1,6 @@
 class Solution {
 public:
-   int pivot_idx(vector<int>& nums,int& n){
+   int  pivot_idx(vector<int>& nums,int& n){
     int l=0;
     int r=n-1;
     while(l<r){
