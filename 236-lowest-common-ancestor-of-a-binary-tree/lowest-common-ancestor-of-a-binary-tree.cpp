@@ -16,9 +16,10 @@ public:
     }
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(root==p or root==q) return root;
-        else if(exist(root->left,p)==true and exist(root->right,q) ) return root;
-        else if(exist(root->right, p ) and exist(root->left,q)) return root;
+        if(exist(root->left,p) and exist(root->right,q)) return root;
+        else if(exist(root->left,q) and exist(root->right,p)) return root;
         else if(exist(root->left,p) and !exist(root->right,q)) return lowestCommonAncestor(root->left,p,q);
         else return lowestCommonAncestor(root->right,p,q);
+        
     }
 };
