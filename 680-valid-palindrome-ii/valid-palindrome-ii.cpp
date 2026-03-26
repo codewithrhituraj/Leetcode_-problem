@@ -1,22 +1,21 @@
 class Solution {
 public:
-   bool isPalindrom(string& s, int left,int right){
-    while(left<right){
-        if(s[left]!=s[right]){
-            return false;
+    bool palindrome(string& s,int left,int right){
+        while(left<right){
+            if(s[left]!=s[right]) return false;
+            left++;
+            right--;
         }
-        left++;
-        right--;
+        return true;
+     
     }
-    return true;
-   }
-   
     bool validPalindrome(string s) {
-        int left =0;
-        int right= s.size()-1;
+        int n=s.length();
+        int left=0;
+        int right=n-1;
         while(left<right){
             if(s[left]!=s[right]){
-                return isPalindrom(s,left+1,right) or isPalindrom(s,left,right-1);
+                return palindrome(s,left+1,right) or palindrome(s,left,right-1);
             }
             left++;
             right--;
