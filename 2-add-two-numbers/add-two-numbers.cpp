@@ -16,7 +16,7 @@ public:
         int carry=0;
         while(carry!=0 or l1!=NULL or l2!=NULL){
             int sum=carry;
-            if(l1!=NULL) {
+            if(l1!=NULL){
                 sum+=l1->val;
                 l1=l1->next;
             }
@@ -24,12 +24,12 @@ public:
                 sum+=l2->val;
                 l2=l2->next;
             }
+
             carry=sum/10;
-            temp->next=new ListNode(sum%10);
+            temp->next= new ListNode(sum%10);
             temp=temp->next;
         }
         return dummy->next;
-
         
     }
 };
