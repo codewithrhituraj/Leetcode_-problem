@@ -10,16 +10,16 @@
  * };
  */
 class Solution {
-public:  
-
-    bool issym(TreeNode* p, TreeNode* q){
-        if(p==NULL and q==NULL) return true;
+public: 
+    bool isssym(TreeNode* p , TreeNode* q){
+        if(p==NULL  and q==NULL) return true;
         if(p==NULL or q==NULL) return false;
-        if (p->val == q->val and  issym(p->left,q->right) and issym(p->right,q->left)) return true;
+        if(p->val == q->val and isssym(p->left, q->right) and isssym(p->right,q->left)) return true;
         return false;
     }
     bool isSymmetric(TreeNode* root) {
         if(root==NULL) return false;
-        return issym(root->left,root->right);       
+        return isssym(root->left,root->right);
+        
     }
 };
