@@ -10,41 +10,41 @@
  */
 class Solution {
 public:
-        ListNode* merge(ListNode* a, ListNode* b){
+    ListNode* Merge_Sort(ListNode* a,ListNode* b){
         ListNode* dummy = new ListNode(-1);
         ListNode* temp= dummy;
-        
-        while(a and b){
+        while(a!=NULL and b!=NULL){
             if(a->val<b->val){
                 temp->next=a;
-                a=a->next;
                 temp=temp->next;
+                a=a->next;
             }
             else{
                 temp->next=b;
-                b=b->next;
                 temp=temp->next;
+                b=b->next;
             }
         }
         if(a==NULL) temp->next=b;
-        else temp->next=a;
+        else temp->next= a;
+
         return dummy->next;
     }
     ListNode* sortList(ListNode* head) {
         if(head==NULL or head->next==NULL) return head;
+        ListNode* fast= head;
         ListNode* slow= head;
-        ListNode* fast=head;
-        while(fast->next!=NULL and fast->next->next!=NULL){
+        while(fast->next!=NULL and fast->next->next!=NULL){//for left middle 
             slow=slow->next;
             fast=fast->next->next;
         }
         ListNode* a=head;
-        ListNode* b=slow->next;
+        ListNode* b= slow->next;
         slow->next=NULL;
+        // you have to call sortlist function for updating list from one 
         a=sortList(a);
         b=sortList(b);
-        
-        ListNode* c= merge(a,b);
+        ListNode* c= Merge_Sort(a,b);
         return c;
         
     }
