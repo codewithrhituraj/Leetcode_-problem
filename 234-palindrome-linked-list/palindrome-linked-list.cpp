@@ -10,16 +10,16 @@
  */
 class Solution {
 public:
-    ListNode* reversee(ListNode* head){
-        ListNode* prev=NULL;
-        ListNode* curr=head;
-        ListNode* N= NULL;
-        while(curr){
-           N=curr->next;
-           curr->next=prev;
-           prev=curr;
-           curr=N;
 
+    ListNode* reverse(ListNode* head){
+        ListNode* curr= head;
+        ListNode* N= NULL;
+        ListNode* prev= NULL;
+        while(curr){
+            N=curr->next;
+            curr->next=prev;
+            prev=curr;
+            curr=N;
         }
         return prev;
     }
@@ -27,21 +27,20 @@ public:
         ListNode* slow=head;
         ListNode* fast=head;
         while(fast->next!=NULL and fast->next->next!=NULL){
-            
+            slow=slow->next;
+            fast=fast->next->next;
+        }
 
-        //FIST MIDDLE ;
-        slow=slow->next;
-        fast=fast->next->next;
-    } 
-
-    ListNode* jj= slow->next;
-    ListNode* re= reversee(jj);
-    ListNode* temp= head;
-    while(re!=NULL){
-        if(temp->val!=re->val) return false;
-        temp=temp->next;
-        re=re->next;
+        ListNode* nn= slow->next;
+        ListNode* te= head;
+        slow->next=NULL;
+        ListNode* re= reverse(nn);
+        
+        while(re!=NULL){
+            if(re->val!=te->val) return false;
+            re=re->next;
+            te=te->next;
+        };
+        return true;
     }
-    return true;
-  }
 };
