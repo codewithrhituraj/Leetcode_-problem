@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool canExist(vector<int>& piles,int mid, int h){
+    bool canExist(vector<int>& piles,int mid,int h){
         int actual=0;
         for(auto& x: piles){
             actual+=x/mid;
@@ -8,12 +8,13 @@ public:
         }
         return actual<=h;
     }
+
     int minEatingSpeed(vector<int>& piles, int h) {
-        int n = piles.size();
+        
         int l=1;
-        int r= *max_element(begin(piles),end(piles));
+        int r=*max_element(begin(piles),end(piles));
         while(l<r){
-            int mid= l+(r-l)/2;
+            int mid = l+(r-l)/2;
             if(canExist(piles,mid,h)){
                 r=mid;
             }
@@ -22,6 +23,5 @@ public:
             }
         }
         return r;
-        
     }
 };
